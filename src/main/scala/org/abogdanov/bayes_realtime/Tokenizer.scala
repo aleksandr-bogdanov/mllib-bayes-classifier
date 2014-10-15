@@ -10,12 +10,13 @@ object Tokenizer {
 	def tokenize(doc: Document): TermDoc = TermDoc(doc.docId, Set(doc.category), tokenize(doc.body))
 
 	def tokenize(content: String): Seq[String] = {
+		// ToDo: implement stemming
 		//		val tReader = new StringReader(content)
 		//		val analyzer = new EnglishAnalyzer(LuceneVersion)
 		//		val tStream = analyzer.tokenStream("contents", tReader)
 		//		val term = tStream.addAttribute(classOf[CharTermAttribute])
 		//		tStream.reset()
-		println("content " + content)
+//		println("content " + content)
 		val a: Seq[String] = content.split(" ").toSeq
 
 		//		val result = mutable.ArrayBuffer.empty[String]
