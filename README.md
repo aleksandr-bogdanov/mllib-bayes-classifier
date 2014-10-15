@@ -1,4 +1,4 @@
-mllib-bayes-classifier-example
+mllib-bayes-classifier
 ==============================
 
 Bayes Classifier implementation using Apache Spark + MLLib + Scala
