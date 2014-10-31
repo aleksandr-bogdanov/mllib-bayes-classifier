@@ -3,7 +3,7 @@ package org.abogdanov.bayes_realtime
 import java.io.{File, FilenameFilter}
 
 import jline.ConsoleReader
-import org.apache.spark.SparkContext
+import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.regression.LabeledPoint
@@ -14,8 +14,9 @@ object NaiveBayesExample extends App {
 		println("Usage: NaiveBayesExample <inputDir>")
 		System.exit(1)
 	}
-	
-	val sc = new SparkContext("local[4]", "NaiveBayesApp")
+
+	val conf = new SparkConf()
+	val sc = new SparkContext("yarn-client", "NaiveBayesApp", conf)
 	val dataDir = args.head
 	val trainedNaiveBayesModel = trainNaiveBayesModel(dataDir)
 	console(trainedNaiveBayesModel)
